@@ -70,16 +70,16 @@ console.log (arraysec)
 // Add class 'active' to section when go top of view
 //i get the container fo all sections frow html fil using id 
 const procont = document.querySelector("#procont");
-const port = ( (elm,index) =>{
+const port = ( (arraysec,index) =>{
     /**i apply to all object in array getBoubdingClientRecrt to retuns a domrect object providing information
      *  about the size of an element and its position relative to the view port**/
-    let rect= elm.getBoundingClientRect();
+    let rect= arraysec.getBoundingClientRect();
     return (rect.top >=0);
 });
-port();
+
 // Scroll to anchor ID using scrollTO event
  // iadd an event when i scroll on the container if the section in view port add tha clss your active class else remove this class from other sections
-const active = ( (elm,index)=> {
+const active = ( (arraysec,index)=> {
     if (port(arraysec)) {
         if(!arraysec.classList.contains("your-active-class"));
         arraysec.classList.add("your-active-class");
@@ -88,7 +88,7 @@ const active = ( (elm,index)=> {
     }
 
 });
-active();
+
 procont.addEventListener('scroll',active);
 /**
  * End Main Functions
